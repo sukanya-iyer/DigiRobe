@@ -3,7 +3,7 @@
 DigiRobe is a web application that helps students digitally manage their wardrobe, generate outfit suggestions, and promote sustainable fashion purchases by reducing unnecessary clothing purchases. The application allows users to catalog their clothing items, filter them in various ways, and receive random outfit suggestions to maximize the use of their existing wardrobe pieces. 
 
 # Installation steps
-## This application is currently designed to run locally. Instructions to run the app locally are provided below.
+### This application is currently designed to run locally. Instructions to run the app locally are provided below.
 
 1. Install dependencies
     pip install -r requirements.txt
