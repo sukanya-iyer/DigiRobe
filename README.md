@@ -23,7 +23,7 @@ DigiRobe is a web application that helps students digitally manage their wardrob
 - Submit to create an account and get redirected to your wardrobe. 
 
 # Managing wardrobe:
-## Add items:
+### Add items:
 1. Fill out the "Add New Item" form with:
     - Item name
     - Category (Tops, Bottoms, Dresses, Shoes, Accessories)
@@ -32,17 +32,17 @@ DigiRobe is a web application that helps students digitally manage their wardrob
 2. Click "Add to wardrobe"
 3. Item appears instantly in your grid
 
-## Filter items
+### Filter items
 1. Use the dropdown in the "Filter Items" section
 2. Select a category to view
 3. Grid automatically updates to show items that match filter
 
-## Delete Items:
+### Delete Items:
 1. Click the Delete button on any item card
 2. Confirm deletion
 3. Item is removed instantly
 
-## Generate Outfit:
+### Generate Outfit:
 1. Click "Generate Random Outfit" button
 2. Application randomly selects 2-3 items from wardrobe
 3. Use suggestions to discover new outfit combinations 
