@@ -4,7 +4,6 @@ DigiRobe is a web application that helps students digitally manage their wardrob
 
 # Installation steps
 ### This application is currently designed to run locally. Instructions to run the app locally are provided below.
-
 1. Install dependencies
     pip install -r requirements.txt
 
@@ -17,8 +16,7 @@ DigiRobe is a web application that helps students digitally manage their wardrob
     Register a new account 
 
 # How to test the application
-## First time setup: 
-
+### First time setup: 
 1. Go to http://127.0.0.1:8000/ in your browser.
 - Click Register button to create a new account. 
 - Fill in username, full name, email, and password
