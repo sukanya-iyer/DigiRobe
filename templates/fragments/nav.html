@@ -1,0 +1,18 @@
+<nav class="navbar">
+    <div class="nav-brand">
+        <a href="/">DigiRobe</a>
+    </div>
+    <div class="nav-menu">
+        {% if user %}
+        <div class="user-info">
+            <span>Welcome, <strong>{{ user.name }}</strong></span>
+        </div>
+        <form hx-post="/logout" style="display: inline;">
+            <button type="submit" class="btn btn-secondary">Logout</button>
+        </form>
+        {% else %}
+        <a href="/login" class="btn btn-secondary">Login</a>
+        <a href="/register" class="btn btn-primary">Register</a>
+        {% endif %}
+    </div>
+</nav>

@@ -1,0 +1,81 @@
+<!-- templates/fragments/wardrobe_grid.html -->
+{% if items %}
+{% for item in items %}
+<div class="item-card" id="item-{{ item.id }}">
+    <h3>{{ item.name }}</h3>
+
+    <p>
+        <span class="label">Category:</span>
+        <span class="badge">{{ item.category }}</span>
+    </p>
+
+    <p><span class="label">Color:</span> {{ item.color }}</p>
+    <p><span class="label">Season:</span> {{ item.season }}</p>
+
+    {% if item.notes %}
+    <p><span class="label">Notes:</span> {{ item.notes }}</p>
+    {% endif %}
+
+    <button hx-delete="/delete-item/{{ item.id }}" hx-target="#item-{{ item.id }}" hx-swap="outerHTML"
+        hx-confirm="Delete this item?" class="btn btn-danger btn-small">
+        🗑️ Delete
+    </button>
+
+    <button onclick="toggleEditForm({{ item.id }})" class="btn btn-primary btn-small">
+        ✏️ Edit
+    </button>
+
+    <form id="edit-form-{{ item.id }}" style="display: none;" hx-post="/update-item" hx-target="#items-grid" hx-swap="innerHTML">
+        <input type="hidden" name="item_id" value="{{ item.id }}">
+        <div class="form-group">
+            <label>Name</label>
+            <input name="name" value="{{ item.name }}">
+        </div>
+        <div class="form-group">
+            <label>Category</label>
+            <select name="category">
+                <option value="{{ item.category }}" selected>{{ item.category|title }}</option>
+                <option value="tops">Tops</option>
+                <option value="bottoms">Bottoms</option>
+                <option value="dresses">Dresses</option>
+                <option value="shoes">Shoes</option>
+                <option value="accessories">Accessories</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Color</label>
+            <input name="color" value="{{ item.color }}">
+        </div>
+        <div class="form-group">
+            <label>Season</label>
+            <select name="season">
+                <option value="{{ item.season }}" selected>{{ item.season|title }}</option>
+                <option value="spring">Spring</option>
+                <option value="summer">Summer</option>
+                <option value="fall">Fall</option>
+                <option value="winter">Winter</option>
+                <option value="all">All Seasons</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Notes</label>
+            <input name="notes" value="{{ item.notes }}">
+        </div>
+        <button class="btn btn-primary">💾 Update</button>
+    </form>
+</div>
+{% endfor %}
+{% else %}
+<p class="no-items">No items yet — add your first one above 👆</p>
+{% endif %}
+
+<script>
+function toggleEditForm(itemId) {
+    const form = document.getElementById(`edit-form-${itemId}`);
+    if (form.style.display === 'none') {
+        form.style.display = 'block';
+    } else {
+        form.style.display = 'none';
+    }
+}
+</script>

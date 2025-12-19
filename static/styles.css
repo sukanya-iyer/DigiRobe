@@ -1,0 +1,562 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* CUSTOM COLOR PALETTE - Earthy/Sustainable Theme */
+:root {
+    --primary: #2d6a4f;
+    /* Forest green */
+    --primary-light: #40916c;
+    --primary-dark: #1b4332;
+    --accent: #d4a373;
+    /* Warm tan */
+    --background: #f1f8f4;
+    /* Soft mint */
+    --card-bg: #ffffff;
+    --text-dark: #1b4332;
+    --text-medium: #52796f;
+    --text-light: #74c69d;
+    --border: #b7e4c7;
+    --danger: #d32f2f;
+    --success: #2d6a4f;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--background);
+    color: var(--text-dark);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.5px;
+    text-shadow: none;
+}
+
+
+/* Custom gradient header */
+.page-header-gradient {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    padding: 3rem 0;
+    margin-bottom: 2rem;
+    color: white;
+    text-align: center;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* NAVBAR */
+.navbar {
+    background: var(--card-bg);
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-bottom: 3px solid var(--primary);
+}
+
+.nav-brand a {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+}
+
+.nav-brand a:hover {
+    color: var(--primary-light);
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--background);
+    border-radius: 20px;
+    font-size: 0.95rem;
+}
+
+.user-info strong {
+    color: var(--primary);
+}
+
+/* CONTAINER */
+.container {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+.wardrobe-container {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.wardrobe-container h1 {
+    color: var(--primary-dark);
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--text-medium);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+/* SECTION CARDS - More distinct styling */
+.section-card {
+    background: var(--background);
+    border-radius: 12px;
+    padding: 1.75rem;
+    margin-bottom: 2rem;
+    border: 2px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+.section-card:hover {
+    border-color: var(--primary-light);
+    box-shadow: 0 4px 12px rgba(45, 106, 79, 0.12);
+}
+
+.section-card h2 {
+    color: var(--primary);
+    margin-bottom: 1.25rem;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Add icons before section headings */
+.section-card h2::before {
+    content: '';
+    width: 4px;
+    height: 24px;
+    background: var(--accent);
+    border-radius: 2px;
+}
+
+/* AUTH CONTAINER */
+.auth-container {
+    max-width: 480px;
+    margin: 3rem auto;
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    border: 1px solid var(--border);
+}
+
+.auth-container h1 {
+    text-align: center;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.2rem;
+}
+
+.auth-container h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    font-family: 'Outfit', sans-serif;
+    color: var(--primary-dark);
+    font-size: 1.15rem;
+    margin-bottom: 2rem;
+    letter-spacing: 0.3px;
+}
+
+/* FORMS - More polished inputs */
+.auth-form,
+.add-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select {
+    padding: 0.875rem;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    background: white;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(45, 106, 79, 0.1);
+}
+
+.form-group input::placeholder {
+    color: #a8c5ba;
+}
+
+.filter-form {
+    display: flex;
+    gap: 1rem;
+}
+
+.filter-select {
+    flex: 1;
+    padding: 0.875rem;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+    background: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-select:hover {
+    border-color: var(--primary-light);
+}
+
+/* BUTTONS - More professional styling */
+.btn {
+    padding: 0.875rem 1.75rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: none;
+    letter-spacing: 0.3px;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 2px 8px rgba(45, 106, 79, 0.3);
+}
+
+.btn-primary:hover {
+    background: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(45, 106, 79, 0.4);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-secondary {
+    background: var(--text-medium);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: var(--text-dark);
+}
+
+.btn-danger {
+    background: var(--danger);
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #b71c1c;
+}
+
+.btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
+/* ITEMS GRID - Better card design */
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.item-card {
+    background: white;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add subtle top accent */
+.item-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.item-card:hover {
+    border-color: var(--primary);
+    box-shadow: 0 8px 16px rgba(45, 106, 79, 0.15);
+    transform: translateY(-4px);
+}
+
+.item-card h3 {
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-size: 1.15rem;
+    margin-top: 0.5rem;
+}
+
+.item-card p {
+    margin-bottom: 0.625rem;
+    color: var(--text-medium);
+    font-size: 0.925rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.label {
+    font-weight: 600;
+    color: var(--text-dark);
+    min-width: 70px;
+}
+
+.badge {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 0.35rem 0.875rem;
+    border-radius: 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.no-items {
+    text-align: center;
+    color: var(--text-medium);
+    padding: 3rem;
+    font-style: italic;
+    font-size: 1.05rem;
+}
+
+/* OUTFIT RESULT - More engaging design */
+.outfit-result {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    border: 3px solid var(--primary);
+    box-shadow: 0 4px 12px rgba(45, 106, 79, 0.15);
+}
+
+.outfit-result h3 {
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.outfit-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.25rem;
+    margin: 1.5rem 0;
+}
+
+.outfit-item {
+    background: var(--background);
+    padding: 1.25rem;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+.outfit-item:hover {
+    border-color: var(--accent);
+    transform: scale(1.05);
+}
+
+.outfit-item h4 {
+    color: var(--text-dark);
+    margin-bottom: 0.75rem;
+    font-size: 1.05rem;
+}
+
+.outfit-tip {
+    color: var(--text-medium);
+    font-style: italic;
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 1rem;
+    padding: 1rem;
+    background: var(--background);
+    border-radius: 8px;
+}
+
+/* MESSAGES - Better styling */
+.error-message {
+    background: #ffebee;
+    color: #c62828;
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--danger);
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+.success-message {
+    background: #e8f5e9;
+    color: #2e7d32;
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--success);
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+.help-text {
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+    background: var(--background);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    text-align: center;
+    border: 1px solid var(--border);
+}
+
+.help-text a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.help-text a:hover {
+    border-bottom-color: var(--primary);
+}
+
+.help-text ul {
+    margin-top: 0.75rem;
+    text-align: left;
+    list-style: none;
+    padding-left: 0;
+}
+
+.help-text ul li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.help-text ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .items-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .wardrobe-container {
+        padding: 1.5rem;
+    }
+
+    .wardrobe-container h1 {
+        font-size: 1.75rem;
+    }
+}
+
+/* LOADING STATES - Add polish */
+.htmx-request .btn {
+    opacity: 0.7;
+    cursor: wait;
+}
+
+/* ANIMATIONS */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.item-card {
+    animation: slideIn 0.3s ease-out;
+}
+
+/* FOOTER (if you want to add one) */
+.footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-medium);
+    font-size: 0.9rem;
+    margin-top: 4rem;
+}
+
+.footer a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+/* Accessibility improvements */
+:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}

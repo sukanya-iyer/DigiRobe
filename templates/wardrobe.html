@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block title %}My Wardrobe - DigiRobe{% endblock %}
+
+{% block content %}
+<div class="wardrobe-container">
+    <h1>My Wardrobe</h1>
+    <p class="subtitle">Organize your clothing and generate sustainable outfit ideas</p>
+
+    <div class="section-card">
+        <h2>➕ Add New Item</h2>
+        <form hx-post="/add-item" hx-target="#items-grid" hx-swap="innerHTML" class="add-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Item Name *</label>
+                    <input name="name" required placeholder="e.g., Blue Jeans">
+                </div>
+
+                <div class="form-group">
+                    <label>Category *</label>
+                    <select name="category" required>
+                        <option value="tops">Tops</option>
+                        <option value="bottoms">Bottoms</option>
+                        <option value="dresses">Dresses</option>
+                        <option value="shoes">Shoes</option>
+                        <option value="accessories">Accessories</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Color *</label>
+                    <input name="color" required placeholder="e.g., Blue">
+                </div>
+
+                <div class="form-group">
+                    <label>Season *</label>
+                    <select name="season" required>
+                        <option value="spring">Spring</option>
+                        <option value="summer">Summer</option>
+                        <option value="fall">Fall</option>
+                        <option value="winter">Winter</option>
+                        <option value="all">All Seasons</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Notes</label>
+                <input name="notes" placeholder="Optional notes">
+            </div>
+
+            <button class="btn btn-primary">Add to Wardrobe</button>
+        </form>
+    </div>
+
+    <div class="section-card">
+        <h2>🔍 Filter Items</h2>
+        <form hx-get="/filter-items" hx-target="#items-grid" hx-trigger="change" class="filter-form">
+            <select name="category" class="filter-select">
+                <option value="all">All Categories</option>
+                <option value="tops">Tops</option>
+                <option value="bottoms">Bottoms</option>
+                <option value="dresses">Dresses</option>
+                <option value="shoes">Shoes</option>
+                <option value="accessories">Accessories</option>
+            </select>
+        </form>
+    </div>
+
+    <div class="section-card">
+        <h2>✨ Outfit Generator</h2>
+        <button hx-get="/generate-outfit" hx-target="#outfit-result" class="btn btn-primary">
+            Generate Random Outfit
+        </button>
+        <div id="outfit-result"></div>
+    </div>
+
+    <div class="section-card">
+        <h2>👕 My Items (<span id="item-count">{{ items|length }}</span>)</h2>
+
+        <div id="items-grid" class="items-grid">
+            {% include "fragments/wardrobe_grid.html" %}
+        </div>
+    </div>
+
+    <footer class="footer">
+        DigiRobe — Reducing Fashion Waste, One Fit at a Time
+    </footer>
+</div>
+{% endblock %}
